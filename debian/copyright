@@ -1,0 +1,36 @@
+Format: http://dep.debian.net/deps/dep5
+Upstream-Name: gfs2-utils
+Source: http://sources.redhat.com/cluster/wiki/
+
+Files: debian/*
+Copyright: 2011 Andres Rodriguez <andreserl@ubuntu.com>
+           2011 Canonical Ltd.
+License: GPL-2+
+
+Files: *
+Copyright: 1997-2003 Sistina Software, Inc.
+           2004-2008 Red Hat, Inc.
+License: GPL-2+
+
+Files: gfs2/man/gfs2_mount.8:
+Copyright:  Portions 2001-2003 The OpenGFS2 Project
+            Portions 2004 <ben.m.cahill at intel.com>
+            Copyright (C) 2004-2008 Red Hat, Inc.  All rights reserved.
+License: GPL-2+
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".

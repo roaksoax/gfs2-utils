@@ -1,0 +1,44 @@
+Source: gfs2-utils
+Section: admin
+Priority: optional
+Maintainer: Andres Rodriguez <andreserl@ubuntu.com>
+Build-Depends: debhelper (>= 7.0.50~), automake, autoconf, libtool, autotools-dev, perl-modules, libcorosync-dev (>= 1.2.0), libopenais-dev (>= 1.1.2), liblogthread-dev (>= 3.1.0), libccs-dev (>= 3.1.0), libcman-dev (>= 3.1.0), libdlm-dev (>= 3.1.0), libdlmcontrol-dev (>= 3.1.0), libfence-dev (>= 3.1.0), libncurses5-dev, pkg-config, autopoint, zlib1g-dev, openais-dev (>= 1.1.4)
+Standards-Version: 3.9.2
+Homepage: http://sources.redhat.com/cluster/wiki/
+
+Package: gfs2-utils
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, psmisc, cman
+Replaces: gfs2-tools (<= 3.0.17)
+Conflicts: gfs2-tools (<= 3.0.17)
+Description: Global File System 2 - filesystem tools
+ The Global File System allows a cluster of machines to concurrently access
+ shared storage hardware like SANs or iSCSI and network block devices. GFS
+ can be deployed to build high-availability services without the single point
+ of failure of a file server.
+ .
+ This package contains tools for creating and managing global file systems.
+ GFS itself is a set of kernel modules.
+
+Package: gfs2-cluster
+Architecture: any
+Replaces: cman (<= 3.0.17), gfs-pcmk (<= 3.0.17)
+Conflicts: cman (<= 3.0.17), gfs-pcmk (<= 3.0.17)
+Depends: ${shlibs:Depends}, ${misc:Depends}, corosync (>= 1.2.7), openais (>= 1.1.2), cman (>= 3.1.0)
+Description: Global File System 2 - cluster tools
+ The Global File System allows a cluster of machines to concurrently access
+ shared storage hardware like SANs or iSCSI and network block devices. GFS
+ can be deployed to build high-availability services without the single point
+ of failure of a file server.
+ .
+ This package contains the gfs_controld daemon and associated tools required
+ to use GFS2 in a cluster. Virtually every user of GFS2 will need to install
+ this package.
+
+Package: gfs-pcmk
+Architecture: any
+Depends: ${misc:Depends}, gfs2-cluster (= ${binary:Version})
+Description: Global filesystem 2 - pacemaker module (transitional package)
+ This package used to contain the GFS pacemaker module. It's now a
+ transitional package without any content, depending on the new
+ gfs2-cluster package that now exists.

@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+BUILDROOT := $(shell pwd)
+
+%:
+	dh $@ 
+
+override_dh_auto_build:
+	[ -f configure ] || sh autogen.sh
+	if [ -e configure -a ! -x configure ]; then chmod u+x configure; fi
+	./configure --sbindir=/usr/sbin --libexecdir=/usr/lib
+
+override_dh_auto_install:
+	$(MAKE) install DESTDIR=$(BUILDROOT)/debian/tmp
+
+	cp gfs2/init.d/gfs2 $(BUILDROOT)/debian/gfs2-utils.init
+	cp gfs2/init.d/gfs2-cluster $(BUILDROOT)/debian/gfs2-cluster.init
+
+	dh_install --list-missing
+
+override_dh_installinit:
+	dh_installinit -p gfs2-utils --no-start --no-restart-on-upgrade -- start 65 S . start 2 0 6 .
+	dh_installinit -p gfs2-cluster --no-start --no-restart-on-upgrade -- start 65 S . start 2 0 6 .
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf debian/*.init

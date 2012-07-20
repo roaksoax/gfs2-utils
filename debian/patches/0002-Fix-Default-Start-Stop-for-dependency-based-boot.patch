@@ -1,0 +1,30 @@
+Index: gfs2-utils-3.1.3/gfs2/init.d/gfs2
+===================================================================
+--- gfs2-utils-3.1.3.orig/gfs2/init.d/gfs2	2012-01-03 10:18:16.082446852 -0500
++++ gfs2-utils-3.1.3/gfs2/init.d/gfs2	2012-01-03 10:18:34.766449855 -0500
+@@ -9,8 +9,8 @@
+ # Provides:		gfs2
+ # Required-Start:	$network cman gfs_controld
+ # Required-Stop:	$network cman gfs_controld
+-# Default-Start:
+-# Default-Stop:
++# Default-Start:	S
++# Default-Stop:		0 6
+ # Short-Description:	mount/unmount gfs2 filesystems configured in /etc/fstab
+ # Description:		mount/unmount gfs2 filesystems configured in /etc/fstab
+ ### END INIT INFO
+Index: gfs2-utils-3.1.3/gfs2/init.d/gfs2-cluster
+===================================================================
+--- gfs2-utils-3.1.3.orig/gfs2/init.d/gfs2-cluster	2012-01-03 10:18:16.082446852 -0500
++++ gfs2-utils-3.1.3/gfs2/init.d/gfs2-cluster	2012-01-03 10:18:34.766449855 -0500
+@@ -13,8 +13,8 @@
+ # Required-Stop: $network cman
+ # Should-Start:
+ # Should-Stop:
+-# Default-Start:
+-# Default-Stop:
++# Default-Start:	S
++# Default-Stop:		0 6
+ # Short-Description: Starts and stops gfs_controld
+ # Description: Starts and stops gfs_controld for dlm based GFS2 filesystems
+ ### END INIT INFO
